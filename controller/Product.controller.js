@@ -1,11 +1,26 @@
+const Product = require("../schemas/Product.model");
+
 /*
  * Get all products from all categories out there
  *
  */
-function getAllProductsList(req,res){
-    res.status(200).json({
-        msg:"Get all products from all categories out there",
-    })
+async function getAllProductsList(req,res){
+    try{
+        const allproducts = await Product.find();
+        if(allproducts.length <= 0){
+            res.status(404).json({
+                msg:"No Products exist..."
+            })
+        }else{
+            res.status(200).json({
+                products:allproducts
+            })
+        }
+    }catch(e){
+        res.status(500).json({
+            msg:"Something went wrong..."
+        })
+    }
 }
 
 /*

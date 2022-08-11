@@ -8,7 +8,7 @@ const {getAllProductsList,
 getProduct,
 getAllCategoryProductsList} = require("../controller/Product.controller");
 
-product.get("/getallproduct",getAllCategoryProductsList);
+product.get("/getallproduct",getAllProductsList);
 
 product.get("/getaprodcut/:prodID",getProduct);
 
