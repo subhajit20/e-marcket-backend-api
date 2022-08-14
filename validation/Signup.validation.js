@@ -11,7 +11,7 @@ const formFields = [
         .isAlphanumeric()
         .withMessage("Your name should be contains with both alphabets and numbers")
         .custom(async (value)=>{
-            const isUser = await  User.find({
+            const isUser = await  User.findOne({
                 username:value
             });
             if(isUser){
