@@ -25,4 +25,4 @@ so please before using this api fo through this documentation...
             
             database Name = ECOMMERCE DATABASE
             database username = subhajit
-            password - gZv1WsPZnDPjJKQO 
+            pwd - gZv1WsPZnDPjJKQO 
