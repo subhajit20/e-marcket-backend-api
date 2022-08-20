@@ -4,6 +4,7 @@ const bodyparser = require("body-parser");
 const mongoose = require("mongoose");
 var cors = require('cors');
 var cookieParser = require('cookie-parser');
+const path = require("path");
 const app = express();
 
 const PORT = process.env.PORT || 2002
@@ -49,6 +50,12 @@ app.use('/c1', category);
 app.use("/p1", product);
 app.use("/a1", authentication);
 app.use("/u1", UserRouter);
+
+const htmlPage = path.join(__dirname, "../index.html");
+
+app.get("/", (req, res) => {
+    res.status(200).sendFile(htmlPage);
+})
 
 app.listen(PORT, () => {
     console.log(`Server is listening http://localhost:${PORT}`);

@@ -1,35 +1,49 @@
 const mongoose = require("mongoose");
-const {v4: uuidv4} = require("uuid");
+const { v4: uuidv4 } = require("uuid");
 
 const UserSchema = new mongoose.Schema({
-    userID:{
-        type:String,
-        default:uuidv4(),
+    userID: {
+        type: String,
+        default: uuidv4(),
     },
-    username:{
-        type:String,
-        required:true,
+    firstname: {
+        type: String,
+        trim: true,
+        required: true,
     },
-    u_email:{
-        type:String,
-        required:true
+    middlename: {
+        type: String,
     },
-    password:{
-        type:String,
-        required:true,
+    lastname: {
+        type: String,
+        required: true
     },
-    buyProducts:[
-        {
-            type:mongoose.Types.ObjectId,
-            ref:"Product"
-        }
-    ],
-    date:{
-        type:Date,
-        default:Date.now(),
+    phonenumber: {
+        type: String,
+        trim: true
+    },
+    username: {
+        type: String,
+        required: true,
+    },
+    u_email: {
+        type: String,
+        required: true
+    },
+    password: {
+        type: String,
+        required: true,
+    },
+    buyProducts: [{
+        type: mongoose.Types.ObjectId,
+        ref: "Product"
+    }],
+    date: {
+        type: Date,
+        default: Date.now(),
     }
 })
 
-const User = new mongoose.model("User",UserSchema);
+const User = new mongoose.model("User", UserSchema);
 
 module.exports = User;
