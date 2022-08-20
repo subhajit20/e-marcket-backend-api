@@ -41,9 +41,9 @@ const formFields = [
     .custom(async(number) => {
         const numbers = await User.findOne({ phonenumber: number });
         if (numbers) {
-            return true;
-        } else {
             throw createError("This number is already exist!!")
+        } else {
+            return true;
         }
     }),
     check("u_email")

@@ -26,3 +26,7 @@ so please before using this api fo through this documentation...
             database Name = ECOMMERCE DATABASE
             database username = subhajit
             pwd - gZv1WsPZnDPjJKQO 
+
+
+            ******** Main deployed link ********
+            Link ====> https://e-marcket-backend-api.herokuapp.com/
