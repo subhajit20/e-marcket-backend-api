@@ -44,12 +44,6 @@ app.use(cookieParser());
 app.use(bodyparser.json());
 app.use(bodyparser.urlencoded({ extended: false }));
 
-app.use((req, res, next) => {
-    res.setHeader("Access-Contol-Allow-Origin", "*");
-    res.setHeader("Access-Contol-Allow-Headers", "*");
-    next()
-})
-
 app.use('/c1', category);
 app.use("/p1", product);
 app.use("/a1", authentication);
