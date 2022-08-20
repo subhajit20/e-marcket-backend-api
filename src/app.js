@@ -49,15 +49,23 @@ app.use(cookieParser());
 app.use(bodyparser.json());
 app.use(bodyparser.urlencoded({ extended: true }));
 
+app.use((req, res, next) => {
+    res.setHeader("Access-Contol-Allow-Origin", "*");
+    res.setHeader("Access-Contol-Allow-Headers", "*");
+    next()
+})
+
 app.use('/c1', category);
 app.use("/p1", product);
 app.use("/a1", authentication);
 app.use("/u1", UserRouter);
 
-const htmlPage = path.join(__dirname, "../index.html");
+
 
 app.get("/", (req, res) => {
-    res.status(200).sendFile(htmlPage);
+    res.status(200).json({
+        msg: "Hi! Wellcome to e-marcket backend api :)"
+    });
 })
 
 app.listen(PORT, () => {
