@@ -19,10 +19,10 @@ const loginFormField = [
     }),
     check("password")
 
-    .custom(async(password) => {
+    .custom(async(password, { req }) => {
         const myuser = await User.findOne({ username: req.body.username });
         if (myuser) {
-            const isValidPassword = await bcrypt.compare(password, myuser.password);
+            const isValidPassword = bcrypt.compare(password, myuser.password)
 
             if (isValidPassword) {
                 return true;
