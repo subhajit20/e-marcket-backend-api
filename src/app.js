@@ -25,10 +25,8 @@ const UserRouter = require('../routes/User.route');
  * Connecting to the mongoDB atlash database
  */
 mongoose.connect(process.env.MONGO_URI, {
-    useCreateIndex: true,
     useNewUrlParser: true,
-    useUnifiedTopology: true,
-    useFindAndModify: false
+    useUnifiedTopology: true
 }).then(() => {
     console.log("Database has been connected successfully...");
 }).catch(() => {
@@ -40,14 +38,11 @@ mongoose.connect(process.env.MONGO_URI, {
  */
 app.use(cors({
     origin: "*",
-    method: [
-        "GET", "POST", "PUT", "DELETE"
-    ],
     credentials: true
 }))
 app.use(cookieParser());
 app.use(bodyparser.json());
-app.use(bodyparser.urlencoded({ extended: true }));
+app.use(bodyparser.urlencoded({ extended: false }));
 
 app.use((req, res, next) => {
     res.setHeader("Access-Contol-Allow-Origin", "*");
