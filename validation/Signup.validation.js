@@ -18,6 +18,7 @@ const formFields = [
             throw createError("Username is already exist...");
         } else {
             console.log("Username is not there...");
+            return true;
         }
     }),
     check("firstname")
@@ -40,7 +41,7 @@ const formFields = [
     .custom(async(number) => {
         const numbers = await User.findOne({ phonenumber: number });
         if (numbers) {
-            console.log("Number is not used!");
+            return true;
         } else {
             throw createError("This number is already exist!!")
         }
@@ -55,7 +56,8 @@ const formFields = [
         if (isEmail) {
             throw createError("Email is already exist...");
         } else {
-            console.log("Email is not there...")
+            console.log("Email is not there...");
+            return true;
         }
     }),
     check('password')
@@ -70,7 +72,8 @@ const formFields = [
     )
     .custom(async(password, { req }) => {
         if (password === req.body.confirmpassword) {
-            console.log("Password is matched...")
+            console.log("Password is matched...");
+            return true;
         } else if (password !== req.body.confirmpassword) {
             throw createError("Password is not matched correctly..")
         }
