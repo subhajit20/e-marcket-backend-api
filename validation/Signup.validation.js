@@ -5,11 +5,11 @@ const createError = require("http-errors");
 const formFields = [
     check("username")
     .isLength({ min: 3 })
-    .withMessage("Your name is too short")
+    .withMessage("Your username is too short")
     .isLength({ max: 10 })
-    .withMessage("Your name is too long,Please put a small name")
+    .withMessage("Your username is too long,Please put a small name")
     .isAlphanumeric()
-    .withMessage("Your name should be contains with both alphabets and numbers")
+    .withMessage("Your username should be contains with both alphabets and numbers")
     .custom(async(value) => {
         const isUser = await User.findOne({
             username: value
@@ -28,9 +28,9 @@ const formFields = [
     .withMessage("Length of your firstname is too long!"),
     check("lastname")
     .isLength({ min: 3 })
-    .withMessage("Length of your firstname is too short!")
+    .withMessage("Length of your Lastname is too short!")
     .isLength({ max: 10 })
-    .withMessage("Length of your firstname is too long!"),
+    .withMessage("Length of your Lastname is too long!"),
     check("phonenumber")
     .isMobilePhone()
     .withMessage("Phonenumber is not valid")
