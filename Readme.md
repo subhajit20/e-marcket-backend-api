@@ -29,4 +29,5 @@ so please before using this api fo through this documentation...
 
 
             ******** Main deployed link ********
-            Link ====> https://e-marcket-backend-api.herokuapp.com/
+            Link1 ====> https://e-marcket-backend-api.herokuapp.com/
+            Link2 ====> https://calm-lime-badger-hose.cyclic.app/
