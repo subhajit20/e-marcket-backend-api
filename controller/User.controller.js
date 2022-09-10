@@ -29,7 +29,7 @@ async function LoginController(req, res) {
     try {
         const isUsername = await User.findOne({ username: req.body.username });
         if (isUsername) {
-            const isValidPassword = bcrypt.compare(req.body.password, isUsername.password);
+            const isValidPassword = await bcrypt.compare(req.body.password, isUsername.password);
             if (isValidPassword) {
                 /**
                  * @Generating access token for authectication
